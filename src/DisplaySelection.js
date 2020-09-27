@@ -10,21 +10,31 @@ const DisplaySection = (props ) => {
 
 
   const onClick = (e,item) => {
-    console.log(item.id);
     e.preventDefault()
-    const db = firebase.firestore();
-    db.collection("saveditems").doc(`doc-${item.id}`).get().then((docSnapshot) => {
-      console.log(docSnapshot.exists);
-      if (docSnapshot.exists) {
-        toast("You already Have this Product Saved");
-       
-      } else {
-        db.collection("saveditems").doc(`doc-${item.id}`).set({...item,username:localStorage.getItem("email")}).then(data=>{
-          toast("Product Saved")
-        });
-       
-      }
-  });
+
+    if(localStorage.getItem("email"))
+    {
+      const db = firebase.firestore();
+      db.collection("saveditems").doc(`doc-${item.id}`).get().then((docSnapshot) => {
+        console.log(docSnapshot.exists);
+        if (docSnapshot.exists) {
+          toast("You already Have this Product Saved");
+         
+        } else {
+          db.collection("saveditems").doc(`doc-${item.id}`).set({...item,username:localStorage.getItem("email")}).then(data=>{
+            toast("Product Saved")
+          });
+         
+        }
+    });
+    }
+
+    else{
+      toast("Please Login To Save Product")
+    }
+  
+   
+    
 
 
    
