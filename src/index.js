@@ -3,15 +3,18 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import { Route, Link, BrowserRouter as Router } from 'react-router-dom'
+import { Route, Switch, BrowserRouter as Router } from 'react-router-dom'
 import Saveditems from './Saveditems';
 import ProtectedRoute from './ProtectedRoute';
 
 const routing = (
   <Router>
     <div>
+      <Switch>
       <Route exact path="/" component={App} />
       <ProtectedRoute exact path="/saveditems" component={Saveditems} />
+      </Switch>
+     
     
     </div>
   </Router>
