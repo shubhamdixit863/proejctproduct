@@ -1,10 +1,9 @@
 {
-  "homepage": "https://abidu1.github.io/projectFive",
+  "homepage": "https://shubhamdixit863.github.io/proejctproduct",
   "name": "makeup-app",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    
     "axios": "^0.19.2",
     "bootstrap": "^4.5.2",
     "cra-template": "1.0.3",
@@ -20,7 +19,6 @@
     "react-scripts": "3.4.1",
     "react-toast-notifications": "^2.4.0",
     "react-toastify": "^6.0.8"
-   
   },
   "scripts": {
     "predeploy": "npm run build",
